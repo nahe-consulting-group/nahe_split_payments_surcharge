@@ -1,0 +1,14 @@
+<odoo>
+    <record id="view_sale_order_payment_line_tree" model="ir.ui.view">
+        <field name="name">sale.order.payment.line.tree</field>
+        <field name="model">sale.order.payment.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="pricelist_id"/>
+                <field name="pricelist_item_id"/>
+                <field name="payment_amount"/>
+                <field name="original_amount_paid"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

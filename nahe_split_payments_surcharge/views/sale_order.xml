@@ -1,0 +1,26 @@
+<odoo>
+    <record id="view_sale_order_form_inherit_payment_plan" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.payment.plan</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Payment Plan Details">
+                    <field name="original_total" widget="monetary"/>
+                    <field name="remaining_amount" widget="monetary"/>
+                    <field name="new_total_price" widget="monetary"/>
+                </group>
+                <field name="payment_line_ids">
+                    <tree editable="bottom">
+                        <field name="pricelist_id" options="{'no_create': true, 'no_open': true}"/>
+                        <field name="pricelist_item_id" options="{'no_create': true, 'no_open': true}"/>
+                        <field name="payment_amount"/>
+                        <field name="original_amount_paid"/>
+                    </tree>
+                </field>
+                <!-- Button to add financial surcharge -->
+                <button name="add_surcharge_product" string="Apply Surcharge" type="object" class="oe_highlight" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
